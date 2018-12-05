@@ -1,0 +1,22 @@
+<h1>Employees</h1>
+<%= link_to "Create employee", employees_new_path %>
+<table>
+  <tr>
+    <thead>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Salary</th>
+    </thead>
+  </tr>
+    <% @employees.each do |employee| %>
+  <tr>
+    <td><%= employee.name %></td>
+    <td><%= employee.role %></td>
+    <td><%= employee.salary %></td>
+    <td>
+      <%= link_to "Edit", edit_employee_path(employee) %>
+      <%= link_to "Delete", employee, method: :delete, data: { confirm: "confirm?"} %>
+    </td>
+  </tr>
+    <% end %>
+</table>
